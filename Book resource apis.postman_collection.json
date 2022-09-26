@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "bffeea18-84cf-4e23-9116-667d90faf757",
+		"name": "Book resource apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19306020"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test name\",\r\n    \"email\": \"testName123@gmail.com\",\r\n    \"password\": \"testingPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"testName123@gmail.com\",\r\n    \"password\": \"testingPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMzMTczYmQ1MWJhNGI1NjY4N2IwMWQ3In0sImlhdCI6MTY2NDE4NTMwMn0.9fFWvLOiozyGsZJh57RIIRA9Xa6ovQlzfbCSDfeJqnI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/auth/getuser",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"getuser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Add a Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMzMTczYmQ1MWJhNGI1NjY4N2IwMWQ3In0sImlhdCI6MTY2NDE4NjQyMX0.FWtffn7wXnl6XxkM81qPot0XLdV66zwgpdrkqHsDXp8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"author\": \"Nishant\",\r\n    \"imageUrl\": \"https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png\",\r\n    \"pages\": \"4\",\r\n    \"price\": 45\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/book/addBook",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book",
+								"addBook"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all books corresponding to the user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMzMTczYmQ1MWJhNGI1NjY4N2IwMWQ3In0sImlhdCI6MTY2NDE4NjQyMX0.FWtffn7wXnl6XxkM81qPot0XLdV66zwgpdrkqHsDXp8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/book/getBooks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book",
+								"getBooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMzMTczYmQ1MWJhNGI1NjY4N2IwMWQ3In0sImlhdCI6MTY2NDE4NjQyMX0.FWtffn7wXnl6XxkM81qPot0XLdV66zwgpdrkqHsDXp8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"fd\",\r\n    \"author\": \"Hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/book/updateBook/63317ef540c32a22a411c29b",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book",
+								"updateBook",
+								"63317ef540c32a22a411c29b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMzMTczYmQ1MWJhNGI1NjY4N2IwMWQ3In0sImlhdCI6MTY2NDE4NjQyMX0.FWtffn7wXnl6XxkM81qPot0XLdV66zwgpdrkqHsDXp8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/book/deleteBook/63317c7e9481eec442dae431",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book",
+								"deleteBook",
+								"63317c7e9481eec442dae431"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get book by _id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMzMTczYmQ1MWJhNGI1NjY4N2IwMWQ3In0sImlhdCI6MTY2NDE4NjQyMX0.FWtffn7wXnl6XxkM81qPot0XLdV66zwgpdrkqHsDXp8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/book/getBook/6331837cd9de8b64a3fcf411",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book",
+								"getBook",
+								"6331837cd9de8b64a3fcf411"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

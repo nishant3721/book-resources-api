@@ -3,7 +3,18 @@ const router = express.Router()
 const Book = require("../models/Book")
 const fetchUser = require("../middleware/fetchUser")
 
-// ROUTE 1 : - Fetching all books : POST "/api/book/getBook"  -> login required
+// ROUTE 1 : - Get book by _id : GET "/api/book/getBook/:id"  -> login required
+router.get('/getBook/:id', fetchUser, async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id)
+        res.json(book)
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send('Something went wrong')
+    }
+})
+
+// ROUTE 2 : - Fetching all books : GET "/api/book/getBooks"  -> login required
 router.get('/getBooks', fetchUser, async (req, res) => {
     try {
         const books = await Book.find({ user: req.user.id })
@@ -14,7 +25,7 @@ router.get('/getBooks', fetchUser, async (req, res) => {
     }
 })
 
-// ROUTE 2 : - Add book : POST "/api/book/addBook"  -> login required
+// ROUTE 3 : - Add book : POST "/api/book/addBook"  -> login required
 router.post('/addBook', fetchUser, async (req, res) => {
     const { name, imageUrl, author, pages, price } = req.body
     // Check if book already exists
@@ -34,7 +45,7 @@ router.post('/addBook', fetchUser, async (req, res) => {
     }
 })
 
-// ROUTE 3 : -  Update book : POST "/api/book/updateBook/:id"  -> login required
+// ROUTE 4 : -  Update book : POST "/api/book/updateBook/:id"  -> login required
 router.put('/updateBook/:id', fetchUser, async (req, res) => {
     const { name, imageUrl, author, pages, price } = req.body
     try {
@@ -81,7 +92,7 @@ router.put('/updateBook/:id', fetchUser, async (req, res) => {
     }
 })
 
-// ROUTE 4 : -  Delete book : POST "/api/book/deleteBook/:id"  -> login required
+// ROUTE 5 : -  Delete book : POST "/api/book/deleteBook/:id"  -> login required
 router.delete('/deleteBook/:id', fetchUser, async (req, res) => {
     try {
         // Find the book that is going to be deleted
